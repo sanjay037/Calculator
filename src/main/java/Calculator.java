@@ -24,17 +24,17 @@ public class Calculator
                     int fact = input.nextInt();
                     System.out.println("Factorial of "+fact+" is "+factorial(fact));
                     break;
-                case 3:
-                    System.out.println("Enter the number ");
-                    double log = input.nextDouble();
-                    System.out.println("Natural Logarithm of "+log+" is "+ln_function(log));
-                    break;
-                case 4:
-                    System.out.println("Enter numbers a and b to find a power b ");
-                    double n1 = input.nextDouble();
-                    double n2 = input.nextDouble();
-                    System.out.println(n1+" power "+n2+" is "+power(n1,n2));
-                    break;
+                // case 3:
+                //     System.out.println("Enter the number ");
+                //     double log = input.nextDouble();
+                //     System.out.println("Natural Logarithm of "+log+" is "+ln_function(log));
+                //     break;
+                // case 4:
+                //     System.out.println("Enter numbers a and b to find a power b ");
+                //     double n1 = input.nextDouble();
+                //     double n2 = input.nextDouble();
+                //     System.out.println(n1+" power "+n2+" is "+power(n1,n2));
+                //     break;
                 case 5:
                     System.out.println("Exiting the program");
                     bool = false;
@@ -59,14 +59,14 @@ public class Calculator
         return n*factorial(n-1);
     }
     
-    public static double ln_function(double n)
-    {
-        return Math.log(n);
-    }
+    // public static double ln_function(double n)
+    // {
+    //     return Math.log(n);
+    // }
 
-    public static double power(double n,double m)
-    {
-        return Math.pow(n,m);
-    }
+    // public static double power(double n,double m)
+    // {
+    //     return Math.pow(n,m);
+    // }
 }
 
