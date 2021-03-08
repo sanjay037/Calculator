@@ -11,7 +11,7 @@ public class Calculator
         while(bool)
         {
             System.out.print("Select the operation to be performed from below options\n");
-            System.out.println("1.Square Root\n 2.Factorial\n 3.Natural Logarthim\n 4.Power Function\n 5.Exit");
+            System.out.println("1.Square Root\n 2.Factorial\n 3.Exit");
             n = input.nextInt();
             switch (n) {
                 case 1:
@@ -24,18 +24,7 @@ public class Calculator
                     int fact = input.nextInt();
                     System.out.println("Factorial of "+fact+" is "+factorial(fact));
                     break;
-                // case 3:
-                //     System.out.println("Enter the number ");
-                //     double log = input.nextDouble();
-                //     System.out.println("Natural Logarithm of "+log+" is "+ln_function(log));
-                //     break;
-                // case 4:
-                //     System.out.println("Enter numbers a and b to find a power b ");
-                //     double n1 = input.nextDouble();
-                //     double n2 = input.nextDouble();
-                //     System.out.println(n1+" power "+n2+" is "+power(n1,n2));
-                //     break;
-                case 5:
+                case 3:
                     System.out.println("Exiting the program");
                     bool = false;
                     break;
@@ -58,15 +47,5 @@ public class Calculator
             return 1;
         return n*factorial(n-1);
     }
-    
-    // public static double ln_function(double n)
-    // {
-    //     return Math.log(n);
-    // }
-
-    // public static double power(double n,double m)
-    // {
-    //     return Math.pow(n,m);
-    // }
 }
 
