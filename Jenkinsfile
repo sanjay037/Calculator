@@ -9,17 +9,12 @@ agent any
 stages {
     stage('Git clone') {
         steps {
-            git 'https://github.com/sanjay037/Calculator'
+            git 'https://github.com/sanjay037/Calculator.git'
             }
         }
-    stage('Clean Target files') {
+    stage('Clean Target files and build excutable jar') {
         steps {
-            sh 'mvn clean'
-            }
-        }
-    stage('Build excutable jar') {
-        steps {
-            sh 'mvn install'
+            sh 'mvn clean install'
             }
         }
     stage('Test') {
@@ -38,10 +33,16 @@ stages {
         steps{
             script{
                 docker.withRegistry('',registryCredential){ 
-                dockerImage.push()
+                dockerImage.push("latest")
                         }
                     }
                }
+        }
+    stage('Remove old docker images'){
+            steps{
+                sh "docker rmi $registry:$BUILD_NUMBER"
+                sh "docker image prune"
+            }
         }
     }
 }
