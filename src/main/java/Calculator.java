@@ -12,7 +12,8 @@ public class Calculator
         {
             System.out.print("Select the operation to be performed from below options\n");
             System.out.println("1.Square Root\n 2.Factorial\n 3.Exit");
-            n = input.nextInt();
+            n = 3;
+            if(input.hasNextInt()) n = input.nextInt();
             switch (n) {
                 case 1:
                     System.out.println("Enter the number ");
