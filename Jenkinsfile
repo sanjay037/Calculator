@@ -38,11 +38,20 @@ stages {
                     }
                }
         }
-    stage('Remove old docker images'){
-            steps{
-                sh "docker rmi $registry:$BUILD_NUMBER"
-                sh "docker image prune"
-            }
+    stage('Deploy on Node') {
+      steps {
+        script {
+          step([
+            $class: "RundeckNotifier",
+            includeRundeckLogs: true,
+            rundeckInstance: "Rundeck server",
+            jobId: "d48b8c93-e523-4526-b437-96b4599c3dc8",
+            shouldWaitForRundeckJob: true,
+            shouldFailTheBuild: true,
+            tailLog: true
+          ])
         }
+      }
+    }
     }
 }
