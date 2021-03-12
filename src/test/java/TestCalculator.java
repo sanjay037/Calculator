@@ -4,6 +4,7 @@ import org.junit.*;
 
 
 public class TestCalculator {
+	Calculator c = new Calculator();
 	@Test
 	public void square_root_true_positive()
 	{
