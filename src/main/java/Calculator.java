@@ -49,7 +49,12 @@ public class Calculator
     {
         int fact = 1;
         logger.info("[FACTORIAL] - "+n);
-        if(n==0 || n==1) 
+        if(n<0)
+        {
+            logger.info("[RESULT - FACTORIAL] - "+0);
+        	return 0;
+        }
+        else if(n==0 || n==1) 
         {
         	logger.info("[RESULT - FACTORIAL] - "+1);
         	return 1;
