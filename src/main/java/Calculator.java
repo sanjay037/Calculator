@@ -1,9 +1,11 @@
 
 import java.util.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Calculator
 {
-
+    private static final Logger logger = LogManager.getLogger(Calculator.class);
     public static void main(String[] args) {
         int n;
         Scanner input = new Scanner(System.in);
@@ -37,15 +39,27 @@ public class Calculator
     }
 
     public static double square_root(double n) {
-        return Math.sqrt(n);
+    	logger.info("[SQUARE_ROOT] - "+n);
+        double solution =  Math.sqrt(n);
+        logger.info("[RESULT : SQUARE_ROOT] - "+solution);
+        return solution;
     }
 
     public static int factorial(int n)
     {
         int fact = 1;
-        if(n==0) 
-            return 1;
-        return n*factorial(n-1);
+        logger.info("[FACTORIAL] - "+n);
+        if(n==0 || n==1) 
+        {
+        	logger.info("[RESULT - FACTORIAL] - "+1);
+        	return 1;
+        }
+        for(int i=2;i<=n;i++)
+        {
+        	fact = fact*i;
+        }
+        logger.info("[RESULT - FACTORIAL] - "+fact);
+        return fact;
     }
 }
 
