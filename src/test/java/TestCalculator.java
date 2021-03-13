@@ -10,12 +10,14 @@ public class TestCalculator {
 	{
 		double n = c.square_root(25);
 		assertEquals(5.0,n,0.0);
-		n = c.square_root(3);
-		assertEquals(1.7320508075688772,n,0.0);
-		n = c.square_root(20);
-		assertNotEquals(5.0,n,0.0);
-		n = c.square_root(-1);
-		assertNotEquals(1.7320508075688772,n,0.0);
+		n = c.square_root(-3);
+		assertEquals(Double.NaN,n,0.0);
+		n = c.square_root(-5);
+		assertNotEquals(0,n,0.0);
+		n = c.square_root(0);
+		assertEquals(0,n,0.0);
+		n = c.square_root(10);
+		assertNotEquals(8,n,0.0);
 	}
 	
 	@Test
@@ -24,12 +26,14 @@ public class TestCalculator {
 		Calculator c = new Calculator();
 		int n = c.factorial(0);
 		assertEquals(1,n);
-		n = c.factorial(4);
-		assertEquals(24,n);
-		n = c.factorial(10);
+		n = c.factorial(-4);
+		assertEquals(0,n);
+		n = c.factorial(-1);
 		assertNotEquals(1,n);
-		n = c.factorial(1);
-		assertNotEquals(24,n);
+		n = c.factorial(20);
+		assertNotEquals(10,n);
+		n = c.factorial(3);
+		assertEquals(6,n);
 	}
 
 	@Test
@@ -40,11 +44,16 @@ public class TestCalculator {
 		assertEquals(0.0,n,0.0);
 		n = c.ln_function(4);
 		assertEquals(1.3862943611198906,n,0.001);
-		n = c.ln_function(10);
-		assertNotEquals(0.0,n,0.0);
-		n = c.ln_function(40);
+		n = c.ln_function(0);
+		assertEquals(Double.NaN,n,0.0);
+		n = c.ln_function(-10);
+		assertEquals(Double.NaN,n,0.0);
+		n = c.ln_function(-4);
 		assertNotEquals(1.3862943611198906,n,0.001);
+		n = c.ln_function(20);
+		assertNotEquals(15.2567,n,0.001);
 	}
+
 	@Test
 	public void power_true_positive()
 	{
@@ -53,9 +62,13 @@ public class TestCalculator {
 		assertEquals(8.0,n,0.0);
 		n = c.power(2, 0);
 		assertEquals(1,n,0.0);
+		n = c.power(0, 0);
+		assertEquals(1,n,0.0);
 		n = c.power(2, 4);
 		assertNotEquals(8.0,n,0.0);
-		n = c.power(2, 0);
-		assertNotEquals(5,n,0.0);
+		n = c.power(-2, 2);
+		assertEquals(4,n,0.0);
+		n = c.power(-2, -1);
+		assertNotEquals(0.5,n,0.0);
 	}
 }

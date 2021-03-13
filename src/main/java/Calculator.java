@@ -50,9 +50,23 @@ public class Calculator
     }
 
     public static double square_root(double n) {
-    	logger.info("[SQUARE_ROOT] - "+n);
-        double solution =  Math.sqrt(n);
-        logger.info("[RESULT : SQUARE_ROOT] - "+solution);
+        double solution = 0;
+        try {
+            logger.info("[SQUARE_ROOT] - "+n);
+            if(n<0)
+            {
+                solution = Double.NaN;
+                throw new IllegalArgumentException("Input can't be negative");
+            }
+            else solution =  Math.sqrt(n);
+        } 
+        catch (IllegalArgumentException error) {
+            logger.error("[RESULT - SQUARE_ROOT] - Square root for negative number is not defined"+solution);
+        }
+        finally
+        {
+            logger.info("[RESULT - SQUARE_ROOT] - "+solution);
+        }
         return solution;
     }
 
@@ -62,7 +76,7 @@ public class Calculator
         logger.info("[FACTORIAL] - "+n);
         if(n<0)
         {
-            logger.info("[RESULT - FACTORIAL] - "+0);
+            logger.error("[RESULT - FACTORIAL] - Factorial for negative number is not defined"+0);
         	return 0;
         }
         else if(n==0 || n==1) 
@@ -79,9 +93,23 @@ public class Calculator
     }
     public static double ln_function(double n)
     {
-    	logger.info("[NATURAL_LOGARITHM] - "+n);
-        double solution =  Math.log(n);
-        logger.info("[RESULT - NATURAL_LOGARITHM] - "+solution);
+        double solution = 0;
+        try {
+            logger.info("[NATURAL_LOGARITHM] - "+n);
+            if(n<=0)
+            {
+                solution = Double.NaN;
+                throw new IllegalArgumentException("Input should be greater than zero");
+            }
+            else solution =  Math.log(n);
+        } 
+        catch (IllegalArgumentException error) {
+            logger.error("[RESULT - NATURAL_LOGARITHM] - NATURAL_LOGARITHM for 0 and negative numbers is not defined"+solution);
+        }
+        finally
+        {
+            logger.info("[RESULT - NATURAL_LOGARITHM] - "+solution);
+        }
         return solution;
     }
     public static double power(double n,double m)
