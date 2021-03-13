@@ -13,7 +13,7 @@ public class Calculator
         while(bool)
         {
             System.out.print("Select the operation to be performed from below options\n");
-            System.out.println("1.Square Root\n 2.Factorial\n 3.Natural Logarthim\n 4.Exit");
+            System.out.println("1.Square Root\n 2.Factorial\n 3.Natural Logarthim\n 4.Power Function\n 5.Exit");
             n = input.nextInt();
             switch (n) {
                 case 1:
@@ -32,6 +32,12 @@ public class Calculator
                     System.out.println("Natural Logarithm of "+log+" is "+ln_function(log));
                     break;
                 case 4:
+                    System.out.println("Enter numbers a and b to find a power b ");
+                    double n1 = input.nextDouble();
+                    double n2 = input.nextDouble();
+                    System.out.println(n1+" power "+n2+" is "+power(n1,n2));
+                    break;
+                case 5:
                     System.out.println("Exiting the program");
                     bool = false;
                     break;
@@ -77,6 +83,19 @@ public class Calculator
         double solution =  Math.log(n);
         logger.info("[RESULT - NATURAL_LOGARITHM] - "+solution);
         return solution;
+    }
+    public static double power(double n,double m)
+    {
+    	double solution = 1;
+    	logger.info("[POWER] - "+n+","+m);
+    	if(m==0)
+    	{
+    		logger.info("[RESULT - POWER] - "+1);
+    		return 1;
+    	}
+    	for(int i=0;i<m;i++) solution = solution*n;
+    	logger.info("[RESULT - POWER] - "+solution);
+    	return solution;
     }
 }
 
