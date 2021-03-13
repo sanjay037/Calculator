@@ -1,4 +1,4 @@
-FROM openjdk:11-jre
+FROM openjdk:8-jre
 COPY ./target/calculator-1.0-SNAPSHOT-jar-with-dependencies.jar ./
 WORKDIR ./ 
 ENV TZ="Asia/Kolkata"
