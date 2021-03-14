@@ -17,7 +17,7 @@ public class TestCalculator {
 		n = c.square_root(0);
 		assertEquals(0,n,0.0);
 		n = c.square_root(10);
-		assertNotEquals(8,n,0.0);
+		assertEquals(3.1622776601683795,n,0.0);
 	}
 	
 	@Test
@@ -52,10 +52,12 @@ public class TestCalculator {
 		assertNotEquals(1.3862943611198906,n,0.001);
 		n = c.ln_function(20);
 		assertNotEquals(15.2567,n,0.001);
+		n = c.ln_function(2.2);
+		assertNotEquals(15.2567,n,0.001);
 	}
 
 	@Test
-	public void power_true_positive()
+	public void test_power()
 	{
 		Calculator c = new Calculator();
 		double n = c.power(2, 3);
@@ -68,7 +70,9 @@ public class TestCalculator {
 		assertNotEquals(8.0,n,0.0);
 		n = c.power(-2, 2);
 		assertEquals(4,n,0.0);
-		n = c.power(-2, -1);
-		assertNotEquals(0.5,n,0.0);
+		n = c.power(-2, -2);
+		assertEquals(0.25,n,0.0);
+		n = c.power(2, -1.2);
+		assertEquals(0.43527528164806206,n,0.0);
 	}
 }

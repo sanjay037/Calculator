@@ -45,7 +45,7 @@ stages {
             $class: "RundeckNotifier",
             includeRundeckLogs: true,
             rundeckInstance: "Rundeck server",
-            jobId: "d48b8c93-e523-4526-b437-96b4599c3dc8",
+            jobId: "0505df7f-d82a-4023-bc39-cbf3a73676fe",
             shouldWaitForRundeckJob: true,
             shouldFailTheBuild: true,
             tailLog: true

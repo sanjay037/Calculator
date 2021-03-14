@@ -61,7 +61,7 @@ public class Calculator
             else solution =  Math.sqrt(n);
         } 
         catch (IllegalArgumentException error) {
-            logger.error("[RESULT - SQUARE_ROOT] - Square root for negative number is not defined"+solution);
+            logger.error("[EXCEPTION - SQUARE_ROOT] - INVALID INPUT "+error.getLocalizedMessage());
         }
         finally
         {
@@ -76,7 +76,7 @@ public class Calculator
         logger.info("[FACTORIAL] - "+n);
         if(n<0)
         {
-            logger.error("[RESULT - FACTORIAL] - Factorial for negative number is not defined"+0);
+            logger.error("[EXCEPTION - FACTORIAL] - INVALID INPUT "+0);
         	return 0;
         }
         else if(n==0 || n==1) 
@@ -104,7 +104,7 @@ public class Calculator
             else solution =  Math.log(n);
         } 
         catch (IllegalArgumentException error) {
-            logger.error("[RESULT - NATURAL_LOGARITHM] - NATURAL_LOGARITHM for 0 and negative numbers is not defined"+solution);
+            logger.error("[EXCEPTION - NATURAL_LOGARITHM] - INVALID INPUT "+error.getLocalizedMessage());
         }
         finally
         {
@@ -116,12 +116,7 @@ public class Calculator
     {
     	double solution = 1;
     	logger.info("[POWER] - "+n+","+m);
-    	if(m==0)
-    	{
-    		logger.info("[RESULT - POWER] - "+1);
-    		return 1;
-    	}
-    	for(int i=0;i<m;i++) solution = solution*n;
+    	solution = Math.pow(n,m);
     	logger.info("[RESULT - POWER] - "+solution);
     	return solution;
     }
